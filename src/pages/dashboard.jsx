@@ -3,6 +3,7 @@ import { getCookie, setCookie } from '../contexts/cookies'
 import { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UploadFile } from '../components/uploadFile';
 
 function Dashboard(e) {
     //e.preventDefault();
@@ -40,6 +41,7 @@ function Dashboard(e) {
         <>
             <p>Welcome to dashboard {name}</p>
             <button onClick={logOut}>LOG OUT</button>
+            <UploadFile />
         </>
     );
 }
