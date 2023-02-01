@@ -4,12 +4,15 @@ import { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UploadFile } from '../components/uploadFile';
+import { Lists } from '../components/listFile';
 
 function Dashboard(e) {
     //e.preventDefault();
     const [name, setName] = useState();
+    const [files, setFiles] = useState([]);
     const navigate = useNavigate();
     const id = getCookie('id');
+
 
     console.log(id);
 
@@ -35,12 +38,24 @@ function Dashboard(e) {
         navigate('/');
     }
 
+    useEffect(() => {
+        axios.post('http://localhost:3011/getFiles', { data: { owner: getCookie('id') } }).then(response => {
+            let tmp = response.data;
+            setFiles(tmp);
+            console.log(tmp);
+        })
+    }, []);
+
+
     console.log(name);
 
     return (
         <>
             <p>Welcome to dashboard {name}</p>
             <button onClick={logOut}>LOG OUT</button>
+            {files.map((file, index) => (
+                <Lists path={file.path} key={index} />
+            ))}
             <UploadFile />
         </>
     );

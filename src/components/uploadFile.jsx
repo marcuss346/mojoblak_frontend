@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { getCookie } from '../contexts/cookies';
 
 export function UploadFile() {
     const [file, setFile] = useState()
@@ -11,8 +12,9 @@ export function UploadFile() {
     function handleSubmit(event) {
         console.log(file);
         event.preventDefault()
-        const url = 'http://localhost:3011/uploadFile';
+        const url = 'http://192.168.1.72:3011/uploadFile';
         const formData = new FormData();
+        formData.append('owner', getCookie('id'));
         formData.append('file', file);
         formData.append('fileName', file.name);
         const config = {
