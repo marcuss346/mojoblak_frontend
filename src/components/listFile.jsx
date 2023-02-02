@@ -1,8 +1,14 @@
 import axios from "axios";
+import { useState } from 'react'
+import { useEffect } from 'react';
+
 
 
 export function Lists(props) {
     console.log('file');
+    const [link, setLink] = useState();
+
+
 
     function downloadFile() {
         console.log('download');
@@ -10,13 +16,25 @@ export function Lists(props) {
         axios.post('http://localhost:3011/download', { data: { path: props.path } })
             .then((response) => {
                 console.log(response);
+                setLink(response.data);
             })
+
+
+
+
+        let a = document.createElement('a');
+        a.href = link;
+        a.download = props.name;
+
+        a.click();
+
+
 
     }
 
 
     return (<>
-        <p >To je ena od datotek, {props.path}</p>
+        <p >To je ena od datotek, {props.name}</p>
         <button onClick={downloadFile}>DOWNLOAD</button>
     </>);
 }

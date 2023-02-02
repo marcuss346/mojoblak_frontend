@@ -12,7 +12,7 @@ export function UploadFile() {
     function handleSubmit(event) {
         console.log(file);
         event.preventDefault()
-        const url = 'http://192.168.1.72:3011/uploadFile';
+        const url = 'http://localhost:3011/uploadFile';
         const formData = new FormData();
         formData.append('owner', getCookie('id'));
         formData.append('file', file);

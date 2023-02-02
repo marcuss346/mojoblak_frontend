@@ -54,7 +54,7 @@ function Dashboard(e) {
             <p>Welcome to dashboard {name}</p>
             <button onClick={logOut}>LOG OUT</button>
             {files.map((file, index) => (
-                <Lists path={file.path} key={index} />
+                <Lists name={file.imeDatoteke} path={file.path} key={index} />
             ))}
             <UploadFile />
         </>

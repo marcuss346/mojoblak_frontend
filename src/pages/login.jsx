@@ -16,7 +16,7 @@ function Login() {
         console.log(neki);
 
         console.log("hello");
-        axios.post('http://192.168.1.72:3011/login', { data: neki }
+        axios.post('http://localhost:3011/login', { data: neki }
         ).then(response => {
             console.log("succsesful");
 
