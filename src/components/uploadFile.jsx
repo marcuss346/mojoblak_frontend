@@ -14,7 +14,7 @@ export function UploadFile() {
         event.preventDefault()
         const url = 'http://localhost:3011/uploadFile';
         const formData = new FormData();
-        formData.append('owner', getCookie('id'));
+        formData.append('owner', localStorage.getItem('Token'));
         formData.append('file', file);
         formData.append('fileName', file.name);
         const config = {

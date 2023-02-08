@@ -21,7 +21,8 @@ function Login() {
             console.log("succsesful");
 
 
-            setCookie('id', response.data.id, 99999);
+            setCookie('id', response.data.UserID, 99999);
+            localStorage.setItem('Token', response.data.Token)
 
 
             navigate('/dashboard');

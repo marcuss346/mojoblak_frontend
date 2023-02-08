@@ -11,35 +11,42 @@ function Dashboard(e) {
     const [name, setName] = useState();
     const [files, setFiles] = useState([]);
     const navigate = useNavigate();
-    const id = getCookie('id');
+    const Token = localStorage.getItem('Token');
 
-
-    console.log(id);
-
-
+    console.log(Token);
 
     useEffect(() => {
-        if (id == '') {
+        if (!Token) {
             navigate('/login');
         }
-        console.log(id);
-        axios.post('http://localhost:3011/userInfo', { data: { userId: id } }).then(response => {
-            console.log(response);
-            let a = response.data
-            console.log(a.name);
-            setName(a.name);
+
+        axios.post('http://localhost:3011/userInfo', { data: { Token: Token } }).then(response => {
+            if (response.data.auth == false) {
+                localStorage.removeItem('Token');
+                navigate('/login');
+            } else {
+                console.log(response);
+                let a = response.data
+                console.log(a.name);
+                setName(a.name);
+            }
         }).catch(err => {
             console.log(err);
         })
     }, [])
 
     function logOut() {
-        setCookie('id', '', 0);
+        axios.post('http://localhost:3011/logout', { data: { Token: Token } }).then(response => {
+            console.log('logout succsess');
+        }).catch(err => {
+            console.log(err);
+        })
+        localStorage.removeItem('Token');
         navigate('/');
     }
 
     useEffect(() => {
-        axios.post('http://localhost:3011/getFiles', { data: { owner: getCookie('id') } }).then(response => {
+        axios.post('http://localhost:3011/getFiles', { data: { Token: localStorage.getItem('Token') } }).then(response => {
             let tmp = response.data;
             setFiles(tmp);
             console.log(tmp);
