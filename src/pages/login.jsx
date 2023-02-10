@@ -6,6 +6,9 @@ import { setCookie } from '../contexts/cookies'
 function Login() {
     const navigate = useNavigate();
 
+
+
+
     function HandleLogin(e) {
         e.preventDefault();
 
@@ -35,15 +38,18 @@ function Login() {
 
     return (
         <>
-            <form onSubmit={HandleLogin}>
-                <input type="text" id="name" name="email" placeholder="Enter your email"></input>
-                <input type="password" id="password" name="password" placeholder="Enter your password"></input>
-                <input type="submit"></input>
-            </form>
+            <div className="">
+                <form onSubmit={HandleLogin}>
+                    <input type="text" id="name" name="email" placeholder="Enter your email"></input>
+                    <input type="password" id="password" name="password" placeholder="Enter your password"></input>
+                    <input type="submit"></input>
+                </form>
 
-            <p>
-                <Link to="/register">Don/t have an account?</Link>
-            </p>
+                <p>
+                    Don/t have an account?
+                    <Link to="/register">Register Here</Link>
+                </p>
+            </div>
         </>
     );
 }

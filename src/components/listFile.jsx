@@ -32,9 +32,19 @@ export function Lists(props) {
 
     }
 
+    function deleteFile() {
+        axios.post('http://localhost:3011/delete', { data: { path: props.path } })
+            .then((response) => {
+                console.log(response);
+            }).catch((err) => {
+                console.error(err);
+            })
+    }
+
 
     return (<>
         <p >To je ena od datotek, {props.name}</p>
         <button onClick={downloadFile}>DOWNLOAD</button>
+        <button onClick={deleteFile}>DELETE</button>
     </>);
 }

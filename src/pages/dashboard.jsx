@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { UploadFile } from '../components/uploadFile';
 import { Lists } from '../components/listFile';
 
-function Dashboard(e) {
-    //e.preventDefault();
+function Dashboard() {
     const [name, setName] = useState();
     const [files, setFiles] = useState([]);
     const navigate = useNavigate();
     const Token = localStorage.getItem('Token');
 
     console.log(Token);
+
 
     useEffect(() => {
         if (!Token) {

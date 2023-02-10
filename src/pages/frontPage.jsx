@@ -4,7 +4,7 @@ function FrontPage() {
     const navigate = useNavigate();
 
     function tologin() {
-        navigate('/login');
+        navigate('/dashboard');
     }
     return (
         <>
