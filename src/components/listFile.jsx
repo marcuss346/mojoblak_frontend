@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from 'react'
 import { useEffect } from 'react';
+import { AiOutlineVerticalAlignBottom } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
 
 
 
@@ -44,7 +46,7 @@ export function Lists(props) {
 
     return (<>
         <p >To je ena od datotek, {props.name}</p>
-        <button onClick={downloadFile}>DOWNLOAD</button>
-        <button onClick={deleteFile}>DELETE</button>
+        <button onClick={downloadFile}><AiOutlineVerticalAlignBottom /></button>
+        <button onClick={deleteFile}><BsFillTrashFill /></button>
     </>);
 }
