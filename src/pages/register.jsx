@@ -45,7 +45,7 @@ function Register() {
                 <input id="name" type="text" name="name" placeholder="First Name"></input>
                 <input id="surname" type="text" name="surname" placeholder="Surname"></input>
                 <input id="email" type="text" name="email" placeholder="Email"></input>
-                <input id="password" type="password" name="password" placeholder="Password"></input>
+                <input id="password" type="password" name="password" placeholder="Password" minLength="8"></input>
                 <input id="repeat" type="password" name="repeatPassword" placeholder="Repeat Password"></input>
                 <input type="submit"></input>
             </form>

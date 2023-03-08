@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UploadFile } from '../components/uploadFile';
 import { Lists } from '../components/listFile';
+import SideBar from '../components/sideNavigation';
 
 function Dashboard() {
     const [name, setName] = useState();
@@ -57,14 +58,15 @@ function Dashboard() {
     console.log(name);
 
     return (
-        <>
-            <p>Welcome to dashboard {name}</p>
-            <button onClick={logOut}>LOG OUT</button>
-            {files.map((file, index) => (
-                <Lists name={file.imeDatoteke} path={file.path} key={index} />
-            ))}
-            <UploadFile />
-        </>
+        <div className="flex min-h-full">
+            <SideBar />
+            <div>
+                {files.map((file, index) => (
+                    <Lists name={file.imeDatoteke} path={file.path} key={index} />
+                ))}
+                <UploadFile />
+            </div>
+        </div>
     );
 }
 

@@ -6,7 +6,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 
 
-export function Lists(props) {
+export function ListsDeleted(props) {
     console.log('file');
     const [link, setLink] = useState();
 
@@ -15,7 +15,7 @@ export function Lists(props) {
     function downloadFile() {
         console.log('download');
 
-        axios.post('http://localhost:3011/download', { data: { path: props.path } })
+        axios.post('http://localhost:3011/restore', { data: { path: props.path } })
             .then((response) => {
                 console.log(response);
                 setLink(response.data);
@@ -35,7 +35,7 @@ export function Lists(props) {
     }
 
     function deleteFile() {
-        axios.post('http://localhost:3011/moveToTrash', { data: { path: props.path } })
+        axios.post('http://localhost:3011/delete', { data: { path: props.path } })
             .then((response) => {
                 console.log(response);
             }).catch((err) => {
