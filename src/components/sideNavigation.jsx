@@ -10,13 +10,16 @@ export default function SideBar() {
     const [name, setName] = useState();
     const Token = localStorage.getItem('Token');
 
+
     useEffect(() => {
+        let Token = localStorage.getItem('Token');;
         if (!Token) {
             nav('/login');
         }
 
+
         axios.post('http://localhost:3011/userInfo', { data: { Token: Token } }).then(response => {
-            if (response.data.auth == false) {
+            if (response.data.auth === false) {
                 localStorage.removeItem('Token');
                 nav('/login');
             } else {
@@ -28,7 +31,7 @@ export default function SideBar() {
         }).catch(err => {
             console.log(err);
         })
-    }, [])
+    }, [nav])
 
     function logOut() {
         axios.post('http://localhost:3011/logout', { data: { Token: Token } }).then(response => {
@@ -42,12 +45,12 @@ export default function SideBar() {
 
     return (
 
-        <nav className="w-1/6 bg-primary h-screen flex flex-col">
-            <div className="width-full hover:bg-[#000000] py-4 px-8">Pozdravljeni, {name}</div>
-            <div className="width-full hover:bg-accent py-4 px-8" onClick={() => { nav('/dashboard') }}>Files</div>
-            <div className="width-full hover:bg-accent py-4 px-8" onClick={() => { nav('/trash') }}>Trash</div>
+        <nav className="w-20% bg-primary h-screen flex flex-col border-2 gap-y-0.5">
+            <div className="width-full  bg-[#2596be] text-white py-4 px-8">Pozdravljeni, {name}</div>
+            <div className="width-full hover:cursor-pointer  bg-[#2596be] text-white py-4 px-8" onClick={() => { nav('/dashboard') }}>Files</div>
+            <div className="width-full hover:cursor-pointer  bg-[#2596be] text-white py-4 px-8" onClick={() => { nav('/trash') }}>Trash</div>
             <div className="grow"></div>
-            <div className="width-full hover:bg-accent py-4 px-8" onClick={logOut}>Log Out</div>
+            <div className="width-full hover:cursor-pointer  bg-[#2596be] text-white py-4 px-8" onClick={logOut}>Log Out</div>
         </nav>
 
     );

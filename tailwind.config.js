@@ -4,7 +4,18 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    backgroundSize: {
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '8%': '8%',
+      '16': '4rem',
+    },
+    extend: {
+      backgroundImage: {
+        'login': "url('/src/assets/user-solid.svg')",
+      },
+    },
   },
   plugins: [],
 }

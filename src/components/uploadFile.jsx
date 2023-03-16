@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { getCookie } from '../contexts/cookies';
 
-export function UploadFile() {
+export function UploadFile({ allfiles, addFiles }) {
     const [file, setFile] = useState()
 
     function handleChange(event) {
@@ -24,6 +23,16 @@ export function UploadFile() {
         };
         axios.post(url, formData, config).then((response) => {
             console.log(response.data);
+            /*const dt = {
+                imeDatoteke: response.data.imeDatoteke,
+                path: response.data.path
+            }
+            let a = [];
+            allfiles.forEach(element => {
+                a.push(element)
+            });
+            a.push(dt);
+            addFiles(a);*/
         }).catch((err) => {
             console.log(err);
         });

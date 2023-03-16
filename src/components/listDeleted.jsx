@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from 'react'
-import { useEffect } from 'react';
 import { AiOutlineVerticalAlignBottom } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 

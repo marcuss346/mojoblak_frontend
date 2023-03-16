@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from 'react'
-import { useEffect } from 'react';
 import { AiOutlineVerticalAlignBottom } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
@@ -19,8 +18,7 @@ export function Lists(props) {
             .then((response) => {
                 console.log(response);
                 setLink(response.data);
-            })
-
+            }).catch((error) => { console.log(error); })
 
 
 
@@ -29,6 +27,8 @@ export function Lists(props) {
         a.download = props.name;
 
         a.click();
+
+
 
 
 

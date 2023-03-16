@@ -1,8 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './pages/login'
 import Register from './pages/register'
 import FrontPage from './pages/frontPage';

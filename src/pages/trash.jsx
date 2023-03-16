@@ -1,15 +1,11 @@
 import axios from 'axios';
-import { getCookie, setCookie } from '../contexts/cookies'
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ListsDeleted } from '../components/listDeleted';
 import SideBar from '../components/sideNavigation';
 
 function Trash() {
-    const [name, setName] = useState();
     const [files, setFiles] = useState([]);
-    const navigate = useNavigate();
     const Token = localStorage.getItem('Token');
 
     console.log(Token);
@@ -23,8 +19,6 @@ function Trash() {
         })
     }, []);
 
-
-    console.log(name);
 
     return (
         <>
