@@ -22,7 +22,7 @@ function Trash() {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex bg-[#12263A]">
                 <SideBar />
                 <div>
                     {files.map((file, index) => (
