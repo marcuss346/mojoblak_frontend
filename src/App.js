@@ -1,18 +1,14 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './pages/login'
-import Register from './pages/register'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/login';
+import Register from './pages/register';
 import FrontPage from './pages/frontPage';
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/dashboard';
 import Trash from './pages/trash';
-import Forgot from './pages/forgotPassword'
+import Forgot from './pages/forgotPassword';
 import ResetPasswordPage from './pages/resetPassword';
 
-
 function App() {
-
-
-
   return (
     <div className="h-screen">
       <Router>
@@ -26,7 +22,6 @@ function App() {
           <Route path="/trash" element={<Trash />} />
         </Routes>
       </Router>
-
     </div>
   );
 }
