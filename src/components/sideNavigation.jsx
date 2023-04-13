@@ -85,6 +85,17 @@ export default function SideBar({ setRefreser, site }) {
         </div>
         <div className="grow"></div>
         <div
+          className={
+            'width-full hover:cursor-pointer rounded-lg hover:animate-fade hover:bg-[#EDE5A6] py-4 px-8 ' +
+            checkSite('userSettings')
+          }
+          onClick={() => {
+            nav('/userSettings');
+          }}
+        >
+          Account Settings
+        </div>
+        <div
           className="width-full hover:cursor-pointer mb-2  rounded-lg hover:animate-fade hover:bg-[#EDE5A6] text-white py-4 px-8 text-[#639FAB]"
           onClick={logOut}
         >

@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import Trash from './pages/trash';
 import Forgot from './pages/forgotPassword';
 import ResetPasswordPage from './pages/resetPassword';
+import UserSettings from './pages/userSettings';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/forgotPassword" element={<Forgot />} />
           <Route path="/resetPassword" element={<ResetPasswordPage />} />
           <Route path="/trash" element={<Trash />} />
+          <Route path="/userSettings" element={<UserSettings />} />
         </Routes>
       </Router>
     </div>

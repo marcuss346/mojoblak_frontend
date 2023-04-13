@@ -50,7 +50,7 @@ export function Lists({ stateChanger, name, path }) {
   return (
     <>
       <div className="py-2">
-        <div className="flex flex-row border items-center px-2 py-1 rounded-md border-[#639FAB]">
+        <div className="flex flex-row border items-center px-2 py-1 rounded-md border-[#BBDBDC]">
           <p className="text-[#639FAB]">{name}</p>
           <div className="grow"></div>
           <div className="grow"></div>

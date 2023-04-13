@@ -36,9 +36,10 @@ export function UploadFile({ allfiles, addFiles, closeUpload, setRefreser }) {
     formData.append('owner', localStorage.getItem('Token'));
     formData.append('file', file);
     formData.append('fileName', file.name);
+    console.log(file.name);
     const config = {
       headers: {
-        'content-type': 'multipart/form-data',
+        'content-type': 'multipart/form-data;charset=utf-8',
       },
     };
     axios
@@ -49,6 +50,8 @@ export function UploadFile({ allfiles, addFiles, closeUpload, setRefreser }) {
       })
       .catch((err) => {
         console.log(err);
+        setMsg({ type: 'error', message: err.response.data });
+        setMessage(true);
       })
       .finally(() => {
         setLoader(false);
@@ -57,6 +60,7 @@ export function UploadFile({ allfiles, addFiles, closeUpload, setRefreser }) {
 
   return (
     <>
+      <meta charSet="UTF-8"></meta>
       <div className="min-h-full min-w-full fixed bg-[rgba(255,255,255,0.5)]">
         <div className="place-items-center rounded-md bg-[#244d75] w-1/2 h-3/4 px-5 py-5 absolute items-center flex flex-col gap-y-5 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
           <input
